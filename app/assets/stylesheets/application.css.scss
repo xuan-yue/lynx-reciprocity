@@ -1,0 +1,395 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ /* mixins, variables, etc. */
+
+ $gray-medium-light: #eaeaea;
+
+ @mixin box_sizing {
+ 	-moz-box-sizing:    border-box;
+ 	-webkit-box-sizing: border-box;
+ 	box-sizing:         border-box;
+ }
+
+ /* universal */
+ // nav {
+ // 	position: fixed;
+ // 	left: 0px;
+ // 	top: 0px;
+ // 	right: 0px;
+ // 	background-color: #d3dfe9;
+ // 	height: 65px;
+ //    padding-top: 8px;
+ // }
+
+a {
+    text-decoration: none !important;
+}
+
+
+ body {
+    // background: image-url("5708403cc3aa1ecb51b0c5b3_photo-1416359658663-73a3834895eb.jpg") no-repeat center;
+  //   background-size:100%;
+ 	// padding-top: 60px;
+ 	// background-color:#2d2d2d;
+  //   font-family: Varela, sans-serif;
+    // letter-spacing: 6px;
+ }
+label{
+
+    // color: #729fc7;
+}
+ section {
+ 	overflow: auto;
+ }
+
+ textarea {
+ 	resize: vertical;
+ }
+
+ .center {
+ 	text-align: center;
+ 	h1 {
+ 		margin-bottom: 10px;
+ 	}
+ }
+
+ /* typography */
+
+ h1, h2, h3, h4, h5, h6 {
+ 	line-height: 1;
+ }
+
+ h1 {
+ 	font-size: 3em;
+ 	margin-bottom: 30px;
+ 	text-align: center;
+    color: #729fc7;
+ }
+
+ h2 {
+ 	font-size: 1.2em;
+ 	letter-spacing: -1px;
+ 	margin-bottom: 30px;
+ 	text-align: center;
+ 	font-weight: normal;
+ 	color: $gray-light;
+ }
+
+ // p {
+ // 	font-size: 1.1em;
+ // 	line-height: 1.7em;
+ // }
+
+
+ /* header */
+ .mobile{
+    display: inline;
+ }
+ .desktop{
+    display: none;
+ }
+
+ #logo 
+ 	{ background: image-url("Lynx-small2-logo.png") no-repeat;
+
+    width: 50px;
+    height: 65px;
+    vertical-align: middle;
+    display: inline-block;
+     }
+ 
+.hero-section.centered {
+    padding-top: 195px;
+    padding-bottom: 195px;
+    border-bottom: 4px solid #69b9ff;
+    background-image: -webkit-linear-gradient(270deg, rgba(46, 157, 255, .5), rgba(46, 157, 255, .22)), url(http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/5708403cc3aa1ecb51b0c5b3_photo-1416359658663-73a3834895eb.jpg);
+    background-image: linear-gradient(180deg, rgba(46, 157, 255, .5), rgba(46, 157, 255, .22)), url(http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/5708403cc3aa1ecb51b0c5b3_photo-1416359658663-73a3834895eb.jpg);
+    background-position: 0% 0%, 50% 50%;
+    background-size: auto, cover;
+    text-align: center;
+}
+
+.hero-heading {
+    margin-bottom: 30px;
+    font-family: Varela, sans-serif;
+    color: #69b9ff;
+    font-size: 80px;
+    line-height: 70px;
+    font-weight: 400;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+.hero-subheading {
+    margin-bottom: 32px;
+    padding-bottom: 0px;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    color: #fff;
+    font-size: 25px;
+    line-height: 25px;
+    font-style: normal;
+    font-weight: 200;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.w-nav-link.w--current {
+    color: #0082f3;
+}
+
+.navigation-link {
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+    color: #676770;
+}
+.alert{
+    margin-top:70px;
+}
+ /* footer */
+
+ footer {
+ 	margin-top: 45px;
+ 	padding-top: 5px;
+ 	border-top: 1px solid $gray-medium-light;
+ 	color: $gray-light;
+ 	a {
+ 		color: $gray;
+ 		&:hover {
+ 			color: $gray-darker;
+ 		}
+ 	}
+ 	small {
+ 		float: left;
+ 	}
+ 	ul {
+ 		float: right;
+ 		list-style: none;
+ 		li {
+ 			float: left;
+ 			margin-left: 15px;
+ 		}
+ 	}
+ }
+
+ /* sidebar */
+
+ aside {
+ 	section.user_info {
+ 		margin-top: 20px;
+ 	}
+ 	section.party_form {
+ 		margin-top: 20px;
+ 		padding: 10px 0;
+ 		width: 75%;
+ 		margin-left: 15px;
+ 	}
+ 	section {
+ 		padding: 10px 0;
+ 		margin-top: 20px;
+ 		&:first-child {
+ 			border: 0;
+ 			padding-top: 0;
+ 		}
+ 		span {
+ 			display: block;
+ 			margin-bottom: 3px;
+ 			line-height: 1;
+ 		}
+ 		h1 {
+ 			font-size: 1.4em;
+ 			text-align: left;
+ 			letter-spacing: -1px;
+ 			margin-bottom: 3px;
+ 			margin-top: 0px;
+ 		}
+ 	}
+ }
+
+ .gravatar {
+ 	float: left;
+ 	margin-right: 10px;
+ }
+
+ .gravatar_edit {
+ 	margin-top: 15px;
+ }
+
+
+ /* forms */
+
+ input, textarea, select, .uneditable-input {
+ 	border: 1px solid #bbb;
+ 	width: 100%;
+ 	margin-bottom: 15px;
+ 	@include box_sizing;
+ }
+
+ input {
+ 	height: auto !important;
+ }
+
+ #error_explanation {
+ 	color: red;
+ 	ul {
+ 		color: red;
+ 		margin: 0 0 30px 0;
+ 	}
+ }
+
+ .field_with_errors {
+ 	@extend .has-error;
+ 	.form-control {
+ 		color: $state-danger-text;
+ 	}
+ }
+
+ .checkbox {
+ 	margin-top: -10px;
+ 	margin-bottom: 10px;
+ 	span {
+ 		margin-left: 20px;
+ 		font-weight: normal;
+ 	}
+ }
+
+ #session_remember_me {
+ 	width: auto;
+ 	margin-left: 0;
+ }
+
+ /* Users index */
+
+ .users {
+ 	list-style: none;
+ 	margin: 0;
+ 	li {
+ 		overflow: auto;
+ 		padding: 10px 0;
+ 		border-bottom: 1px solid $gray-lighter;
+ 	}
+ }
+
+
+ aside {
+ 	textarea {
+ 		height: 100px;
+ 		margin-bottom: 5px;
+ 	}
+ }
+ .seach_box{
+
+ 	padding-top: 80px;
+ 	padding-right: 75px;
+ 	padding-bottom: 25px;
+ 	padding-left: 75px;
+ }
+ .site-header{
+ 	padding-top: 20px;
+ 	color: white;
+ 	font-size: 5em;
+ 	height: 100px;
+
+ }
+ .welcome-user{
+ 	color: white;
+ 	font-size: 2em;
+ 	text-shadow: 1px 1px #0A0500;
+
+ }
+ .box {
+ 	display: inline-block;
+ 	width: 200px;
+ 	height: 200px;
+ 	margin: 1em;
+ 	position: relative;
+ }
+
+
+ .container { 
+ 	margin: 0 auto;
+ 	position: relative;
+ }
+ /* miscellaneous */
+
+ .debug_dump {
+ 	clear: both;
+ 	float: left;
+ 	width: 100%;
+ 	margin-top: 45px;
+ 	@include box_sizing;
+ }
+
+
+
+
+ /*------------------------------*/
+
+
+
+ /* The side navigation menu */
+ .sidenav {
+ 	height: 100%; /* 100% Full-height */
+ 	width: 0; /* 0 width - change this with JavaScript */
+ 	position: fixed; /* Stay in place */
+ 	z-index: 1; /* Stay on top */
+ 	top: 0;
+ 	left: 0;
+ 	background-color: #e5f2fd; /* Black*/
+ 	overflow-x: hidden; /* Disable horizontal scroll */
+ 	padding-top: 60px; /* Place content 60px from the top */
+ 	transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+ }
+
+ /* The navigation menu links */
+ .sidenav a {
+ 	padding: 8px 8px 8px 32px;
+ 	text-decoration: none;
+ 	font-size: 25px;
+ 	color: #818181;
+ 	display: block;
+ 	transition: 0.3s
+ }
+
+ /* When you mouse over the navigation links, change their color */
+ .sidenav a:hover, .offcanvas a:focus{
+ 	color: #f1f1f1;
+ }
+
+ /* Position and style the close button (top right corner) */
+ .sidenav .closebtn {
+ 	position: absolute;
+ 	top: 0;
+ 	right: 25px;
+ 	font-size: 36px;
+ 	margin-left: 50px;
+ }
+
+ /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+ #main {
+ 	transition: margin-left .5s;
+ 	padding: 20px;
+ }
+
+ /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+ @media screen and (max-height: 450px) {
+ 	.sidenav {padding-top: 15px;}
+ 	.sidenav a {font-size: 18px;}
+ }

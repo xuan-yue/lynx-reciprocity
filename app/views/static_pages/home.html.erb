@@ -1,0 +1,169 @@
+<% if logged_in? %>
+<br>
+<br>
+<br>
+<br>
+<div class="jumbotron ">
+    <section class = "user_info ">
+      <h1 class= "center">   Welcome
+        <%= current_user.firstName %>
+        <%= current_user.lastName %>!
+                
+      </h1>
+    </section>
+</div>
+<% else %>
+
+
+
+
+
+
+	<div class="centered hero-section">
+		<div class="w-container" data-ix="new-interaction">
+			<h1 class="hero-heading" data-ix="fade-in-bottom-page-loads">LYNX
+			</h1>
+			<div class="hero-subheading" data-ix="fade-in-bottom-page-loads">Meet the people who will truly impact your life.
+			</div>
+			<div class="hero-subheading subheading2" data-ix="fade-in-bottom-page-loads">Love your networking experience.
+			</div>
+			<div data-ix="fade-in-bottom-page-loads">
+  <%= link_to "Interested? Sign up here.", signup_path, class: "button" %>
+			</div>
+		</div>
+	</div>
+
+	
+	<div class="section">
+		<div class="w-container">
+			<div class="section-title-group">
+				<h2 class="centered section-heading">our mission
+				</h2>
+				<div class="center section-subheading">Lynx is a movement to help you build deeply meaningful professional relationships.
+				</div>
+			</div>
+			<div class="w-row">
+				<div class="w-col w-col-4">
+					<div class="white-box">
+						<img class="grid-image" src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/570aaa960dd2dc033a7a7bbc_seeker.png">
+						<h3>SEEKERS
+						</h3>
+						<p>You have an amazing idea for a project. You're looking for an exciting new role in a stellar company. You're looking for a rockstar candidate to fill a role. Or perhaps you'd like to finally meet the right mentor. We can help you connect with the right people and the right opportunities.
+						</p>
+					</div>
+				</div>
+				<div class="w-col w-col-4">
+					<div class="white-box">
+						<img class="grid-image" src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/5708403cc3aa1ecb51b0c5f6_feather2-17-white.svg" width="210">
+						<h3>CONNECTORS
+						</h3>
+						<p>You love to connect people who should know each other. You build the community and are an integral part of curating the interconnectedness of your network. We empower connectors to make more informed introductions that lead to better results.
+						</p>
+					</div>
+				</div>
+				<div class="w-col w-col-4">
+					<div class="white-box">
+						<img class="grid-image" src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/5708403cc3aa1ecb51b0c5f5_feather-15-white.svg" width="210">
+						<h3>ORGANIZERS
+						</h3>
+						<p>You bring together the community. You work hard to&nbsp;to make your community tight-knit and help it to thrive by producing quality events. We give event organizers tools to engage their communities in real-time at events and gather valuable feedback from members.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="accent section">
+		<div class="w-container">
+			<div class="section-title-group">
+				<h2 class="centered section-heading white">PRODUCTS
+				</h2>
+				<div class="center off-white section-subheading services">LYNX&nbsp;Events &nbsp; &nbsp; &nbsp;&nbsp;| &nbsp; &nbsp; &nbsp;&nbsp;LYNX&nbsp;PRM
+				</div>
+			</div>
+			<div class="w-row">
+				<div class="w-col w-col-6">
+					<div class="transparent white-box">
+						<img class="fullwidth-image" src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/570a96270dd2dc033a7a6b18_IMG_0019.jpg">
+						<h3 class="white-text">Connect with someone new
+						</h3>
+						<p class="paragraph white-text">Come to one of our events and experience a whole new way of expanding your network. We host speaker events once a month followed by our proprietary networking experience.
+						</p>
+						<a class="hollow-button" href="#">
+							<strong>IN&nbsp;private beta
+							</strong>
+						</a>
+					</div>
+				</div>
+				<div class="w-col w-col-6">
+					<div class="transparent white-box">
+						<img class="fullwidth-image" src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/570a94d9727410dd49f82858_Dollarphotoclub_97345615.jpg">
+						<h3 class="white-text">Refine your 1° network
+						</h3>
+						<p class="paragraph white-text">Lynx Professional Relations Management is a tool for engaging your first degree network by helping you to manage introductions and deepen your existing relationships.
+						</p>
+						<a class="all-caps hollow-button" href="#">Coming soon
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section">
+		<div class="w-container">
+			<div class="section-title-group">
+				<h2 class="centered section-heading">OUR COMMUNITY
+				</h2>
+				<div class="center section-subheading">Join us next time to get to know these inspiring individuals
+				</div>
+			</div>
+			<div class="tabs-wrapper w-tabs" data-duration-in="300" data-duration-out="100">
+				<div class="tab-menu w-tab-menu">
+					<a class="button tab w--current w-inline-block w-tab-link" data-w-tab="Tab 1">
+						<div>Speakers
+						</div>
+					</a>
+					<a class="button tab w-inline-block w-tab-link" data-w-tab="Tab 2">
+						<div>ATTENDEES
+						</div>
+					</a>
+					<a class="button tab w-inline-block w-tab-link" data-w-tab="Tab 3">
+						<div>VOLUNTEERS
+						</div>
+					</a>
+				</div>
+				<div class="w-tab-content">
+					<div class="w--tab-active w-tab-pane" data-w-tab="Tab 1">
+						<div>
+							<img class="fullwidth-image" src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/570a969f44c86edb7d6af53c_IMG_0113.jpg">
+							<h2>Learn something new
+							</h2>
+							<p>Each month we invite a distinguished speaker from the local community to present their work on exciting new advancements. Our speakers are passionate about their topics and passing on their knowledge to the community. If you have a speaker that you'd really like to hear from, we'd be happy to reach out to them for a future Lynx event.
+							</p>
+						</div>
+					</div>
+					<div class="w-tab-pane" data-w-tab="Tab 2">
+						<div>
+							<img class="fullwidth-image" src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/570c8e7abcb8841d6082bc33_IMG_0131.jpg">
+							<h2>Our goal is to make everyone feel welcome
+							</h2>
+							<p>Lynx is about building community during every one of our events. We encourage people to go beyond small talk to really get to know the other aspiring professionals in the room. The best connections are formed through genuine conversation, and you'd be surprised at how much you can learn just by spending the time to find out what each person has to say about their passions, their work, and their career aspirations.
+							</p>
+						</div>
+					</div>
+					<div class="w-tab-pane" data-w-tab="Tab 3">
+						<div>
+							<img class="fullwidth-image" src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/570c8e35aa2c20d952179612_IMG_0164.jpg">
+							<h2>Become a Lynx volunteer
+							</h2>
+						</div>
+						<p>Part of being a Lynx member is the ownership of the event and the community. We encourage you to help us create experiences around the topics that you're interested in exploring. Your time will be very valuably spent in fostering the Lynx community as well as putting yourself in a great position to meet and work with many quality individuals.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<% end %>
