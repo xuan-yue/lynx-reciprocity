@@ -1,0 +1,8 @@
+<h1>Lynx</h1>
+
+<p>Hi <%= @user.firstName %>,</p>
+
+<p>
+	Your event access code is <%= @event.access_code %>.
+<%= link_to "Enter Event", @event %>
+</p>

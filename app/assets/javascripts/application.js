@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .
 
@@ -34,3 +35,15 @@ function closeNav() {
     document.getElementById("main").style.marginLeft= "0";
 	document.getElementById("nav").style.marginLeft = "0";
 }
+
+
+
+
+$(document).on("focus", "[data-behaviour~='datepicker']", function(e) {
+	console.log("here")
+  $(this).datepicker;
+  return {
+    format: "dd-mm-yyyy",
+    autoclose: true
+  };
+});

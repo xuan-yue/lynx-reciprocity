@@ -63,8 +63,8 @@ Rails.application.configure do
   :address              => 'smtp.gmail.com',
   :port                 => 587,
   :domain               => 'gmail.com',
-  :user_name            => 'lynx',
-  :password             => 'lynx123',
+  :user_name            => 'LynxAppMailer',
+  :password             => 'lynx1234',
   :authentication       => :plain,
   :enable_starttls_auto => true,
   :openssl_verify_mode  => 'none'

@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-
+  get    'access_event'   => 'events#access'
+  post    'validate_access'   => 'events#validate_access'
   get    'register'  => 'users#new'
   # get    'attendance_histories'=> 'attendance_history#index'
   # post    'attendance_histories'=> 'attendance_history#create'

@@ -3,10 +3,7 @@
   <div class="col-md-6 col-md-offset-3 form-wrapper w-form">
 
 <%= form_for(@event) do |f| %>
-<br>
-<br>
-<br>
-<br>
+
 <br>
 <br>
   <% if @event.errors.any? %>
@@ -21,6 +18,10 @@
     </div>
   <% end %>
 
+
+  <%= f.hidden_field :owner_id, :value => current_user.id%>
+
+
   <div class="field">
     <%= f.text_field :name, placeholder: "Name", class: 'form-field w-input' %>
   </div>
@@ -34,10 +35,10 @@
     <%= f.text_field :url, placeholder: "Url", class: 'form-field w-input' %>
   </div>
   <div class="field">
-    <%= f.datetime_select :startDate, placeholder: "Start Date", class: 'form-field w-input' %>
+    <%= f.text_field :startDate, placeholder: "Start Date", 'data-behaviour' => 'datepicker', class: 'form-field w-input'  %>
   </div>
   <div class="field">
-    <%= f.datetime_select :endDate, placeholder: "End Date", class: 'form-field w-input' %>
+    <%= f.text_field :endDate, placeholder: "End Date", 'data-behaviour' => 'datepicker', class: 'form-field w-input'  %>
   </div>
   <div class="actions">
     <%= f.submit "Create Event", class: "button full-width w-button" %>

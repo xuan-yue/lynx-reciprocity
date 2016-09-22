@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160920202445) do
     t.string   "access_code"
     t.datetime "startDate"
     t.datetime "endDate"
+    t.integer  "owner_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

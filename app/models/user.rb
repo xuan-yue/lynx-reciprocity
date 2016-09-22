@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   before_create :create_activation_digest
   #mount_uploader :picture, PictureUploader
 
+  has_many :events, :as => :owner, :dependent => :destroy
   #validates :terms_of_service, acceptance: true
   validates :firstName,  presence: true, length: { maximum: 50 }
   validates :lastName,  presence: true, length: { maximum: 50 }
@@ -111,11 +112,7 @@ class User < ActiveRecord::Base
   end
 
   def send_welcome_email
-    if self.user_type == "Coach"
-      UserMailer.welcome_coach(self).deliver_now
-    else
-      UserMailer.welcome_athlete(self).deliver_now
-    end 
+      UserMailer.welcome(self).deliver_now
   end
 
   # Sets the password reset attributes.

@@ -8,6 +8,9 @@
       <h1 class= "center">   Welcome
         <%= current_user.firstName %>
         <%= current_user.lastName %>!
+        <div>
+  <%= link_to "Event Access Code", access_event_path, class: "button" %>
+</div>
                 
       </h1>
     </section>

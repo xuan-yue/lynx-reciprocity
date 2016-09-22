@@ -10,9 +10,11 @@ class CreateEvents < ActiveRecord::Migration
       t.integer :zip
       t.string :picture
       t.string :url
-      t.string :access_code, unique: true
+      t.string :access_code
       t.datetime :startDate
       t.datetime :endDate
+
+      t.references :owner
 
       t.timestamps null: false
     end

@@ -12,6 +12,20 @@ class EventsController < ApplicationController
   def show
   end
 
+  def access 
+    @event = Event.new
+  end
+
+  def validate_access
+    @event = Event.where(["access_code = ? and 'endDate' >= ? ", params[:event][:access_code],Date.today])
+    if !@event.empty?
+      redirect_to @event.first
+    else
+      redirect_to access_event_path, notice: 'Access code not found. Please contact your organizer.' 
+    end
+
+  end
+
   # GET /events/new
   def new
     @event = Event.new
@@ -28,6 +42,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
+      @event.send_event_details
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
@@ -69,6 +84,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :description, :picture, :url, :startDate, :endDate)
+      params.require(:event).permit(:name, :description, :owner_id, :picture, :url, :startDate, :endDate)
     end
 end
