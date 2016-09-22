@@ -2,7 +2,9 @@
   <div class="navigation-bar w-nav" data-animation="default" data-collapse="medium" data-contain="1" data-duration="400">
     <div class="w-container">
       <a class="brand-link w-nav-brand" href="/">
-        <img src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/570aaf4c727410dd49f8450c_lynx-gray.png" width="40">
+
+<%= image_tag "lynx-gray.png", alt: "Picture", style: "width:40px" %>
+        <!-- <img src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/570aaf4c727410dd49f8450c_lynx-gray.png" width="40"> -->
       </a>
       <nav class="navigation-menu w-nav-menu" role="navigation">
         <% if logged_in?%>

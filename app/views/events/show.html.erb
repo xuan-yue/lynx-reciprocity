@@ -1,0 +1,53 @@
+<br>
+<br><br><br><br><br>
+<p id="notice"><%= notice %></p>
+
+
+          <% if !AttendanceHistory.find_by(user: current_user) %>
+                  <% @attendance_history = AttendanceHistory.new %>
+                  <%= form_for(@attendance_history) do |f| %>
+                    <%= f.hidden_field :user_id, :value => current_user.id%>
+                    <%= f.hidden_field :event_id, :value => @event.id%>
+                    <%= f.submit "Check In", class: "btn btn-large btn-danger" %>
+                  <% end %>
+          <% else %>
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>Access Code:</strong>
+  <%= @event.access_code %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @event.picture %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @event.url %>
+</p>
+
+<p>
+  <strong>Startdate:</strong>
+  <%= @event.startDate %>
+</p>
+
+<p>
+  <strong>Enddate:</strong>
+  <%= @event.endDate %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
+
+          <% end %>

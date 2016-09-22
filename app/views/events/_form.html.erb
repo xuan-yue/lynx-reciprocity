@@ -1,0 +1,48 @@
+
+<div class="w-container">
+  <div class="col-md-6 col-md-offset-3 form-wrapper w-form">
+
+<%= form_for(@event) do |f| %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Name", class: 'form-field w-input' %>
+  </div>
+  <div class="field">
+    <%= f.text_field :description, placeholder: "Description", class: 'form-field w-input' %>
+  </div>
+  <div class="field">
+    <%= f.text_field :picture, placeholder: "Picture", class: 'form-field w-input' %>
+  </div>
+  <div class="field">
+    <%= f.text_field :url, placeholder: "Url", class: 'form-field w-input' %>
+  </div>
+  <div class="field">
+    <%= f.datetime_select :startDate, placeholder: "Start Date", class: 'form-field w-input' %>
+  </div>
+  <div class="field">
+    <%= f.datetime_select :endDate, placeholder: "End Date", class: 'form-field w-input' %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create Event", class: "button full-width w-button" %>
+  </div>
+<% end %>
+
+  </div>
+  </div>
