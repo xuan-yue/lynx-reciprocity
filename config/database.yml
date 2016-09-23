@@ -55,5 +55,5 @@ production:
  database: lynx
  username: lynx
  password: lynx1234
- host: lynx.cotmtc9z3czw.us-west-2.rds.amazonaws.com:5432 #lynx.cotmtc9z3czw.us-west-2.rds.amazonaws.com
+ host: lynx.cotmtc9z3czw.us-west-2.rds.amazonaws.com #lynx.cotmtc9z3czw.us-west-2.rds.amazonaws.com
  port: 5432  #5432
