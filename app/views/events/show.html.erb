@@ -4,16 +4,6 @@
 <p id="notice"><%= notice %></p>
 
 
-          <% if !AttendanceHistory.find_by(user: current_user) %>
-                  <% @attendance_history = AttendanceHistory.new %>
-                  <%= form_for(@attendance_history) do |f| %>
-                    <%= f.hidden_field :user_id, :value => current_user.id%>
-                    <%= f.hidden_field :event_id, :value => @event.id%>
-                    <%= f.submit "Check In", class: "btn btn-large btn-danger" %>
-                  <% end %>
-          <% else %>
-
-
 <p>
   <strong>Name:</strong>
   <%= @event.name %>
@@ -51,5 +41,4 @@
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
 
-          <% end %>
         </div>

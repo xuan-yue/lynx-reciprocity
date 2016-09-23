@@ -49,11 +49,11 @@ test:
  username: lynx
  password: lynx123
 
-# production:
-# adapter: postgresql
-# encoding: unicode
-# database: <%= ENV['RDS_DB_NAME'] %>
-# username: <%= ENV['RDS_USERNAME'] %>
-# password: <%= ENV['RDS_PASSWORD'] %>
-# host: <%= ENV['RDS_HOSTNAME'] %>
-# port: <%= ENV['RDS_PORT'] %>
+production:
+ adapter: postgresql
+ encoding: unicode
+ database: lynx
+ username: lynx
+ password: lynx1234
+ host: lynx.cotmtc9z3czw.us-west-2.rds.amazonaws.com:5432 #lynx.cotmtc9z3czw.us-west-2.rds.amazonaws.com
+ port: 5432  #5432
