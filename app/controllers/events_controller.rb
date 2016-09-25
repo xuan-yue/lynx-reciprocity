@@ -19,6 +19,8 @@ class EventsController < ApplicationController
   def validate_access
     @event = Event.where(["access_code = ? and 'endDate' >= ? ", params[:event][:access_code],Date.today])
     if !@event.empty?
+      @attendance = AttendanceHistory.new(user: current_user, event: @event.first) 
+      @attendance.save! if !AttendanceHistory.find_by(user: current_user, event: @event.first)
       redirect_to @event.first
     else
       redirect_to access_event_path, notice: 'Access code not found. Please contact your organizer.' 
