@@ -1,17 +1,17 @@
 <li class="li-ask" id="ask-<%= ask.id %>">
 	<%= image_tag "account-icon-25498.png", class: "user-profile-img" %>
 	<span class="user"><%= link_to ask.user.firstName + ' ' + ask.user.lastName, ask.user %></span>	
-	<small class="timestamp">
+<small class="timestamp">
 		<%= time_ago_in_words(ask.created_at) %> ago.
 	</small>
 	<span class="content"><%= ask.ask %></span>
 
-
+	
 	
 	<small class="response_count"> <%= ask.responses.count %> <%= "Comment".pluralize(ask.responses.count) %></small>
 
 <% @response=Response.new %>
-<%= form_for(@response) do |f|, class:"form-inline" %>
+<%= form_for(@response, html:{class:"form-inline"}) do |f| %>
   <% if @response.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@response.errors.count, "error") %> prohibited this response from being saved:</h2>
@@ -27,9 +27,12 @@
 
   <%= f.hidden_field :user_id, :value => current_user.id%>
   <%= f.hidden_field :ask_id, :value => ask.id %>
-  <div class="field">
-    <%= f.text_field :response, placeholder: "Respond to question here.", class: 'form-field w-input' %>
-  </div>
+  <span class="">
+    <%= f.text_area :response, placeholder: "Respond to question here.", class: 'w-input' %>
+  </span>
+  <span class="">
+    <%= f.submit "Submit", class:"btn btn-default" %>
+  </span>
 <% end %>
 
 

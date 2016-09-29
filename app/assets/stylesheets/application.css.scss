@@ -101,6 +101,7 @@ a {
   .timestamp {
     color: $gray-light;
     display: block;
+    text-align: right;
   }
   .gravatar {
     float: left;
@@ -127,6 +128,7 @@ a {
   .timestamp {
     color: $gray-light;
     display: block;
+    text-align: right;
   }
   .content {
     display: block;
@@ -146,7 +148,7 @@ a {
 
 .user-profile-img {
   width: 50px;
-  
+
 
 }
 
