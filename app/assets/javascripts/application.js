@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .
@@ -37,7 +38,9 @@ function closeNav() {
 }
 
 
-
+$('.collapse').on('hidden.bs.collapse', function (e) {
+    alert('Event fired on #' + e.currentTarget.id);
+})
 
 $(document).on("focus", "[data-behaviour~='datepicker']", function(e) {
   $(this).datepicker;

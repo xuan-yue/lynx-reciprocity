@@ -1,5 +1,5 @@
 
-<div class="section">
+<div class=" event">
 
   <p>
     <strong>Name:</strong>
@@ -23,10 +23,14 @@
 
     <%= link_to "Create Ask", new_ask_path(event_id: @event.id), class: "button  w-button" %>
   </p>
+
+    <br>
+    <br>
+  <div class="asks_count"><h4> <%= @event.asks.count %> <%= "Ask".pluralize(@event.asks.count) %></h4></div>
+
 </div>
 <div class="">
   <% if @event.asks.any? %>
-  <h3> <%= @event.asks.count %> Asks</h3>
   <% @event.asks.each do |ask| %>
   <ol class="asks">
     <%= render ask %>

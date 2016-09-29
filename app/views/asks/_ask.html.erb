@@ -1,15 +1,15 @@
-<li class="li-ask" id="ask-<%= ask.id %>">
-	<%= image_tag "account-icon-25498.png", class: "user-profile-img" %>
-	<span class="user"><%= link_to ask.user.firstName + ' ' + ask.user.lastName, ask.user %></span>	
-<small class="timestamp">
+<div class="li-ask" id="ask-<%= ask.id %>">
+	<small class="timestamp">
 		<%= time_ago_in_words(ask.created_at) %> ago.
 	</small>
+	<%= image_tag "account-icon-25498.png", class: "user-profile-img" %>
+	<span class="user"><%= link_to ask.user.firstName + ' ' + ask.user.lastName, ask.user %></span>	
+
 	<span class="content"><%= ask.ask %></span>
 
 	
 	
-	<small class="response_count"> <%= ask.responses.count %> <%= "Comment".pluralize(ask.responses.count) %></small>
-
+<!-- Inline response form -->
 <% @response=Response.new %>
 <%= form_for(@response, html:{class:"form-inline"}) do |f| %>
   <% if @response.errors.any? %>
@@ -35,16 +35,27 @@
   </span>
 <% end %>
 
+<!-- end of Inline response form -->
+<br>
+<a class="center" role="button" data-toggle="collapse" href="#collapseExample-<%= ask.id %>" aria-expanded="false" aria-controls="collapseExample">
+ 
+	<div class="center response_count"> View <%= ask.responses.count %> <%= "Comment".pluralize(ask.responses.count) %></div>
+</a>
 
-</li>
 
-	<li class="responses">
+<div class="collapse" id="collapseExample-<%= ask.id %>">
 
+	<div class="responses">
+<br>
 		<% if ask.responses.any? %>
 		<% ask.responses.each do |response| %>
-		<ol class="response">
+		<div class="response">
 			<%= render response %>
-		</ol>
+		</div>
 		<% end %>
 		<% end %>  
-	</li>
+	</div>
+</div>
+
+
+</div>

@@ -18,9 +18,9 @@
 		<% if @user.asks.any? %>
 		<h4> <%= @user.asks.count %> Asks</h4>
 		<% @user.asks.each do |ask| %>
-		<ol class="asks">
+		<div class="asks">
 			<%= render ask %>
-		</ol>
+		</div>
 		<% end %>
 		<% end %>
 	</div>  

@@ -14,3 +14,9 @@
              activated_at: Time.zone.now,
              activated: true,
              admin: true)
+
+
+@event = Event.create!(name:  "Rails Meetup",
+             startDate: Time.today,
+             endDate: Time.today + 1,
+             user: @user)

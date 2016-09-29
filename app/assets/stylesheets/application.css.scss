@@ -67,23 +67,38 @@ a {
 // }
 
     // display: none;
+    .center{
+        
+    text-align: center;
+    }
+.event{
+    background-image: image-url('Background-4-mountains.png');
 
+
+
+    padding: 200px 50px;
+    margin-top: 65px;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+}
 .asks {
+    width:850px;
   list-style: none;
   padding: 0px 10px;
-  margin: 0px 30%;
+  margin: auto;
 .li-ask{
 
     padding: 25px 40px;
+    border-top: 1px solid #e8e8e8;
 }
 .li-response{
     
     padding: 0px 20px;
 }
-  li {    
-    // padding: 25px 40px;
-    border-top: 1px solid #e8e8e8;
-  }
+  // li {    
+  //   // padding: 25px 40px;
+  // }
   .user {
     margin-top: 5em;
     padding-top: 0;
@@ -113,17 +128,21 @@ a {
 
 
 .responses{
-  list-style: none;
+  // list-style: none;
   padding: 0px ;
   margin: 0px;
-  ol {
-    list-style: none;
-        padding-left: 0px;
-  }
+  // ol {
+  //   list-style: none;
+  //       padding-left: 0px;
+  // }
 
-  li {    
-    padding: 25px 20px;
-    border-top: 1px solid #e8e8e8;
+  // li {    
+  //   padding: 25px 20px;
+  //   border-top: 1px solid #e8e8e8;
+  // }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
   }
   .timestamp {
     color: $gray-light;
@@ -142,6 +161,8 @@ a {
   }
   .response{
         background-color: #e8f6fe;
+    padding: 25px 20px;
+    border-top: 1px solid #e8e8e8;
   }
 }
 }
