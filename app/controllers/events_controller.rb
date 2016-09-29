@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :attendees]
 
   # GET /events
   # GET /events.json
@@ -10,6 +10,11 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+   
+  end
+
+  def attendees
+    @attendees = @event.users
   end
 
   def access 
@@ -27,6 +32,7 @@ class EventsController < ApplicationController
     end
 
   end
+
 
   # GET /events/new
   def new
@@ -86,6 +92,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :description, :owner_id, :picture, :url, :startDate, :endDate)
+      params.require(:event).permit(:name, :description, :user_id, :picture, :url, :startDate, :endDate)
     end
 end

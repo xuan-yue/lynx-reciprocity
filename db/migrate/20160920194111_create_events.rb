@@ -14,9 +14,10 @@ class CreateEvents < ActiveRecord::Migration
       t.datetime :startDate
       t.datetime :endDate
 
-      t.references :owner
+      t.references :user, index: true
 
       t.timestamps null: false
     end
+    add_foreign_key :events, :users
   end
 end

@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
 
 
+  resources :responses
+
+  resources :asks
+
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -14,6 +18,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get    'access_event'   => 'events#access'
+  get '/events/:id/attendees', to: 'events#attendees', as: 'attendees'
   post    'validate_access'   => 'events#validate_access'
   get    'register'  => 'users#new'
   # get    'attendance_histories'=> 'attendance_history#index'
@@ -22,11 +27,15 @@ Rails.application.routes.draw do
   # GET    'edit_attendance_histories'    =>'attendance_history#edit'
   # GET    'attendance_histories'       =>'attendance_history#show'
 
+  resources :asks 
+  resources :responses 
   resources :users 
   resources :events
   resources :attendance_histories
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
+
+
 
 
 

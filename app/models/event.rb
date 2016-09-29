@@ -1,7 +1,9 @@
 class Event < ActiveRecord::Base
 	before_create :set_access_code
-	has_many :users, through: :attendance_history
-	belongs_to :owner
+	has_many :users, through: :attendance_histories
+	has_many :attendance_histories
+	has_many :asks
+	belongs_to :user
 
 	#  has_many :event_check_ins
 	#  mount_uploader :picture, PictureUploader
@@ -11,7 +13,7 @@ class Event < ActiveRecord::Base
   # def to_param
   #   "#{name}-#{access_code}"
   # end
-  
+
   def send_event_details
     UserMailer.event_details(self).deliver_now
   end

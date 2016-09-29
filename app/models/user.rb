@@ -4,8 +4,13 @@ class User < ActiveRecord::Base
   before_save   :downcase_email #, :create_profile
   before_create :create_activation_digest
   #mount_uploader :picture, PictureUploader
+  has_many :asks
+  has_many :responses
 
   has_many :events, :as => :owner, :dependent => :destroy
+
+  has_many :events, through: :attendance_histories
+  has_many :attendance_histories
   #validates :terms_of_service, acceptance: true
   validates :firstName,  presence: true, length: { maximum: 50 }
   validates :lastName,  presence: true, length: { maximum: 50 }

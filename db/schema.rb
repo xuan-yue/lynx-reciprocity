@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920202445) do
+ActiveRecord::Schema.define(version: 20160926081902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "asks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.string   "ask"
+    t.text     "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "asks", ["event_id"], name: "index_asks_on_event_id", using: :btree
+  add_index "asks", ["user_id"], name: "index_asks_on_user_id", using: :btree
 
   create_table "attendance_histories", force: :cascade do |t|
     t.integer  "user_id"
@@ -39,10 +51,23 @@ ActiveRecord::Schema.define(version: 20160920202445) do
     t.string   "access_code"
     t.datetime "startDate"
     t.datetime "endDate"
-    t.integer  "owner_id"
+    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
+
+  create_table "responses", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "ask_id"
+    t.string   "response"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "responses", ["ask_id"], name: "index_responses_on_ask_id", using: :btree
+  add_index "responses", ["user_id"], name: "index_responses_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "firstName"
@@ -73,6 +98,11 @@ ActiveRecord::Schema.define(version: 20160920202445) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "asks", "events"
+  add_foreign_key "asks", "users"
   add_foreign_key "attendance_histories", "events"
   add_foreign_key "attendance_histories", "users"
+  add_foreign_key "events", "users"
+  add_foreign_key "responses", "asks"
+  add_foreign_key "responses", "users"
 end

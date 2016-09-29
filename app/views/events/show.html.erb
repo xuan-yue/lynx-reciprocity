@@ -1,44 +1,37 @@
-<br>
-<br><br><br><br><br>
-<div  class="jumbotron ">
-<p id="notice"><%= notice %></p>
+
+<div class="section">
+
+  <p>
+    <strong>Name:</strong>
+    <%= @event.name %>
+  </p>
+
+  <p>
+    <strong>Access Code:</strong>
+    <%= @event.access_code %>
+  </p>
 
 
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
+  <p>
 
-<p>
-  <strong>Access Code:</strong>
-  <%= @event.access_code %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+    <%= link_to 'Edit', edit_event_path(@event) %> |
+    <%= link_to 'Back', events_path %>
 
-<p>
-  <strong>Picture:</strong>
-  <%= @event.picture %>
-</p>
+    <br>
+    <br>
+    <%= link_to 'View Attendees', attendees_path(@event), class: "button  w-button" %>
 
-<p>
-  <strong>Url:</strong>
-  <%= @event.url %>
-</p>
+    <%= link_to "Create Ask", new_ask_path(event_id: @event.id), class: "button  w-button" %>
+  </p>
+</div>
+<div class="">
+  <% if @event.asks.any? %>
+  <h3> <%= @event.asks.count %> Asks</h3>
+  <% @event.asks.each do |ask| %>
+  <ol class="asks">
+    <%= render ask %>
+  </ol>
+  <% end %>
+  <% end %>
+</div>
 
-<p>
-  <strong>Startdate:</strong>
-  <%= @event.startDate %>
-</p>
-
-<p>
-  <strong>Enddate:</strong>
-  <%= @event.endDate %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
-
-        </div>

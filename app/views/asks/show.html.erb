@@ -1,0 +1,26 @@
+<br><br><br>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @ask.user.firstName %>   <%= @ask.user.lastName %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @ask.event.name %>
+</p>
+
+<p>
+  <strong>Ask:</strong>
+  <%= @ask.ask %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @ask.details %>
+</p>
+
+<%= link_to "Respond to Ask", new_response_path(ask_id: @ask.id), class: "navigation-link w-nav-link" %>
+<%= link_to 'Edit', edit_ask_path(@ask) %> |
+<%= link_to 'Back', asks_path %>

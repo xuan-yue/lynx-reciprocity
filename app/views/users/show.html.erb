@@ -1,14 +1,27 @@
-<% provide(:title, @user.firstName + @user.lastName) %>
-<br>
-<br>
-<br>
-<br>
-<div class="jumbotron ">
-    <section class = "user_info ">
-      <h1 class= "center">   Welcome
-        <%= @user.firstName %>
-        <%= @user.lastName %>!
-                
-      </h1>
-    </section>
+
+
+
+<div class="">
+	<% provide(:title, @user.firstName + @user.lastName) %>
+
+	<div class="section">
+		<h1 class= "center">   Welcome
+			<%= @user.firstName %>
+			<%= @user.lastName %>!
+
+		</h1>
+		Karma points: <%= @user.responses.count %>
+	</div>
+
+
+	<div class="">
+		<% if @user.asks.any? %>
+		<h4> <%= @user.asks.count %> Asks</h4>
+		<% @user.asks.each do |ask| %>
+		<ol class="asks">
+			<%= render ask %>
+		</ol>
+		<% end %>
+		<% end %>
+	</div>  
 </div>

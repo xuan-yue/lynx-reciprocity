@@ -40,10 +40,15 @@ function closeNav() {
 
 
 $(document).on("focus", "[data-behaviour~='datepicker']", function(e) {
-	console.log("here")
   $(this).datepicker;
   return {
     format: "dd-mm-yyyy",
     autoclose: true
   };
 });
+
+$('#id_of_textarea').keypress(function(e){
+      if(e.which == 13){
+           $(this).closest('form').submit();
+       }
+    });

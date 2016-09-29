@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Asks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Event</th>
+      <th>Ask</th>
+      <th>Details</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @asks.each do |ask| %>
+      <tr>
+        <td><%= ask.user %></td>
+        <td><%= ask.event %></td>
+        <td><%= ask.ask %></td>
+        <td><%= ask.details %></td>
+        <td><%= link_to 'Show', ask %></td>
+        <td><%= link_to 'Edit', edit_ask_path(ask) %></td>
+        <td><%= link_to 'Destroy', ask, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ask', new_ask_path %>
