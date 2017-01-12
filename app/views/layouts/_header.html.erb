@@ -1,26 +1,24 @@
 
-  <div class="navigation-bar w-nav" data-animation="default" data-collapse="medium" data-contain="1" data-duration="400">
-    <div class="w-container">
-      <a class="brand-link w-nav-brand" href="/">
+<div class="navigation-bar w-nav" data-animation="default" data-collapse="medium" data-contain="1" data-duration="400">
+  <div class="w-container">
+    <a class="brand-link w-nav-brand" href="/">
 
-<%= image_tag "lynx-gray.png", alt: "Picture", style: "width:40px" %>
-        <!-- <img src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/570aaf4c727410dd49f8450c_lynx-gray.png" width="40"> -->
-      </a>
-      <nav class="navigation-menu w-nav-menu" role="navigation">
-        <% if logged_in?%>
-<%= link_to "Log Out", logout_path, method: "delete", class: "navigation-link w-nav-link" %>
-  <%= link_to "Create Event", new_event_path, class: "navigation-link w-nav-link" %>
-
-  <%= link_to "Events", events_path, class: "navigation-link w-nav-link" %>
-        <%else%>
+      <%= image_tag "lynx-gray.png", alt: "Picture", style: "width:40px" %>
+      <!-- <img src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/570aaf4c727410dd49f8450c_lynx-gray.png" width="40"> -->
+    </a>
+    <nav class="navigation-menu w-nav-menu" role="navigation">
+      <% if logged_in?%>
+        <%= link_to "Log Out", logout_path, method: "delete", class: "navigation-link w-nav-link" %>
+        <%= link_to "Events", events_path, class: "navigation-link w-nav-link" %>
+      <%else%>
         <%= link_to "Log In", login_path, class: "navigation-link w-nav-link" %>
-        <%end%>
-        <a class="navigation-link w-nav-link" href="/contact">Contact
-        </a>
-      </nav>
-      <div class="hamburger-button w-nav-button" onclick="openNav()">
-        <div class="w-icon-nav-menu">
-        </div>
+      <%end%>
+      <a class="navigation-link w-nav-link" href="/contact">Contact
+      </a>
+    </nav>
+    <div class="hamburger-button w-nav-button" onclick="openNav()">
+      <div class="w-icon-nav-menu">
       </div>
     </div>
   </div>
+</div>

@@ -29,10 +29,14 @@ class ResponsesController < ApplicationController
     respond_to do |format|
       if @response.save
       @response.send_response_notification
-        format.html { redirect_to @response.ask.event, notice: 'Response was successfully created.' }
+        format.html { 
+          # flash[:success] = 'Comment was successfully created.'
+          redirect_to @response.ask.event }
         format.json { render :show, status: :created, location: @response }
       else
-        format.html { render :new }
+        format.html { 
+          flash[:danger] = 'Sorry, the comment could not be saved.'
+          render :new }
         format.json { render json: @response.errors, status: :unprocessable_entity }
       end
     end

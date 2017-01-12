@@ -15,7 +15,23 @@
              activated: true,
              admin: true)
 
+@user1 = User.create!(firstName:  "Xuan",
+	       lastName: 	"Yue",
+             email: "xuan.cells@gmail.com",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             activated_at: Time.zone.now,
+             activated: true,
+             admin: true)
 
+@user2 = User.create!(firstName:  "Enhao",
+	       lastName: 	"Li",
+             email: "enhao@lynx-me.com",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             activated_at: Time.zone.now,
+             activated: true,
+             admin: true)
 @event = Event.create!(name:  "Rails Meetup",
              startDate: Time.today,
              endDate: Time.today + 1,

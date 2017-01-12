@@ -1,61 +1,72 @@
-<div class="li-ask" id="ask-<%= ask.id %>">
-	<small class="timestamp">
-		<%= time_ago_in_words(ask.created_at) %> ago.
-	</small>
-	<%= image_tag "account-icon-25498.png", class: "user-profile-img" %>
-	<span class="user"><%= link_to ask.user.firstName + ' ' + ask.user.lastName, ask.user %></span>	
-
-	<span class="content"><%= ask.ask %></span>
-
-	
-	
-<!-- Inline response form -->
-<% @response=Response.new %>
-<%= form_for(@response, html:{class:"form-inline"}) do |f| %>
-  <% if @response.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@response.errors.count, "error") %> prohibited this response from being saved:</h2>
-
-      <ul>
-      <% @response.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
 
-  <%= f.hidden_field :user_id, :value => current_user.id%>
-  <%= f.hidden_field :ask_id, :value => ask.id %>
-  <span class="">
-    <%= f.text_area :response, placeholder: "Respond to question here.", class: 'w-input' %>
-  </span>
-  <span class="">
-    <%= f.submit "Submit", class:"btn btn-default" %>
-  </span>
-<% end %>
+	<div class="ask" id="ask-<%= ask.id %>">
+		<div class="ask-section">
+			<small class="timestamp">
+				<%= time_ago_in_words(ask.created_at) %> ago.
+			</small>
+			<%=  gravatar_for ask.user %> 			
+			<span class="user"><%= link_to ask.user.firstName + ' ' + ask.user.lastName.first, ask.user, class:"ask-user-name" %></span>	
 
-<!-- end of Inline response form -->
-<br>
-<a class="center" role="button" data-toggle="collapse" href="#collapseExample-<%= ask.id %>" aria-expanded="false" aria-controls="collapseExample">
- 
-	<div class="center response_count"> View <%= ask.responses.count %> <%= "Comment".pluralize(ask.responses.count) %></div>
-</a>
+			<span class="content"><%= ask.ask %></span>
 
 
-<div class="collapse" id="collapseExample-<%= ask.id %>">
+		<br>
+		<a class="" role="button" data-toggle="collapse" href="#collapse-<%= ask.id %>" aria-expanded="true" aria-controls="collapse">
+			
+			<div class="response_count"> <%= ask.responses.count %> <%= "Comment".pluralize(ask.responses.count) %></div>
+		</a>
 
-	<div class="responses">
-<br>
-		<% if ask.responses.any? %>
-		<% ask.responses.each do |response| %>
-		<div class="response">
-			<%= render response %>
+
+
 		</div>
-		<% end %>
-		<% end %>  
+
+
+		<div class="collapse" id="collapse-<%= ask.id %>">
+
+
+		
+		<!-- Inline response form -->
+		<div class="inline-response-form">
+			<% @response=Response.new %>
+			<%= form_for(@response, html:{class:"form-inline"}) do |f| %>
+			<% if @response.errors.any? %>
+			<div id="error_explanation">
+				<h2><%= pluralize(@response.errors.count, "error") %> prohibited this response from being saved:</h2>
+
+				<ul>
+					<% @response.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+					<% end %>
+				</ul>
+			</div>
+			<% end %>
+
+
+			<%= f.hidden_field :user_id, :value => current_user.id%>
+			<%= f.hidden_field :ask_id, :value => ask.id %>
+			<span class="">
+				<%= f.text_area :response, placeholder: "Respond to question here.", class: 'w-input' %>
+			</span>
+			<span class="">
+				<%= f.submit "Submit", class:"btn btn-default" %>
+			</span>
+			<% end %>
+		</div>
+
+		<!-- end of Inline response form -->
+
+			<div class="responses">
+				<br>
+				<% if ask.responses.any? %>
+				<% ask.responses.each do |response| %>
+				<div class="response">
+					<%= render response %>
+				</div>
+				<% end %>
+				<% end %>  
+			</div>
+		</div>
+
+
 	</div>
-</div>
-
-
-</div>

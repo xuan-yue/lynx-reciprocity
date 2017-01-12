@@ -1,41 +1,129 @@
+<% provide(:title, @event.name) %>
+<% provide(:mobile_header_title, @event.name) %>
+<% provide(:bodyclass, "event_body") %>
 
-<div class=" event">
+<div class="event_head wrap" >
+  <div class="event_host">
+    Host: <%= @event.user.firstName %>  <%= @event.user.lastName %>
+  </div>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @event.name %>
-  </p>
+    <div class="event_name">
+      <%= @event.name %>
+    </div>
+    <div class="event_details">
+      <%= @event.startDate.strftime("%a %b %d at %I:%M%p") %>
+    </div>
 
-  <p>
-    <strong>Access Code:</strong>
-    <%= @event.access_code %>
-  </p>
+    <div class="event_my_stats">
+      <div class="event_my_stats_section">
+        <div class= "circle"> 
+          <div class= "circle_value"> 
+            <%= @event.asks(user: current_user).count %>
+          </div>
+        </div>
+        My Asks
+      </div>
+      <div class="event_my_stats_section">
+        <div class= "circle">
+          <div class= "circle_value"> 
+            <%= current_user.responses(event: @event).count %>
+          </div>
+        </div>
+        My Answers
+      </div>
+      <div class="event_my_stats_section">
+        <div class= "circle">
+          <div class= "circle_value"> 
+            <%= current_user.responses.count %>
+          </div>
+        </div>
+        My Points
+      </div>
+    </div>
 
 
-  <p>
+  <div class="ask_button" id="ask_button" >
+    <div id="ask_container" title = 'Create an Ask' 'data-toggle' = 'tooltip' 'data-placement' = 'right'>
+      <span>
+      <%= link_to image_tag("icons/add-ask-button-60x60@2x.png", border: 0), '#', id:"ask_button_img", 'data-toggle' => "modal", 'data-target' => "#myModal" %>
+    </span>
+    </div>
+  </div>
 
-    <%= link_to 'Edit', edit_event_path(@event) %> |
-    <%= link_to 'Back', events_path %>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+          <% @ask = Ask.new %>
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">What are you looking for?</h4>
+        </div>
+        <div class="modal-body">
+          <%= form_for(@ask) do |f| %>
+            <% if @ask.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@ask.errors.count, "error") %> prohibited this ask from being saved:</h2>
 
-    <br>
-    <br>
-    <%= link_to 'View Attendees', attendees_path(@event), class: "button  w-button" %>
+                <ul>
+                <% @ask.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
 
-    <%= link_to "Create Ask", new_ask_path(event_id: @event.id), class: "button  w-button" %>
-  </p>
 
-    <br>
-    <br>
-  <div class="asks_count"><h4> <%= @event.asks.count %> <%= "Ask".pluralize(@event.asks.count) %></h4></div>
+            <%= f.hidden_field :user_id, :value => current_user.id%>
+            <%= f.hidden_field :event_id, :value => @event.id %>
+            <div class="field">
+              <%= f.text_area :ask, placeholder: "Ask your question here.", class: 'form-field w-input no-bottom-margin' %>
+            </div>
+            <br>
+              <%= f.submit "Submit", class: "btn btn-info modal-btn" %>
+          <% end %>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
 
+
+
+
+  <div class="event_tabs">
+    <%= link_to 'ASKS (' + @event.asks.count.to_s + ')', '#', id:"focusmeplease", class: "event_tab event_asks_tab", onclick: "openContent(event, 'asks_panel')" %> 
+    <%= link_to 'PEOPLE (' + @event.users.count.to_s + ')', '#', class: "event_tab event_attendees_tab", onclick: "openContent(event, 'attendees_panel')" %>
+  </div>
 </div>
-<div class="">
+
+<div id="asks_panel" class="tabcontent" event_attendees_tab>
+<% card_colors = ['91CFFF', '88D0E0', '6EA8A7', 'FFD090', 'F1BBA7', '0DC59C'] %>
   <% if @event.asks.any? %>
-  <% @event.asks.each do |ask| %>
-  <ol class="asks">
-    <%= render ask %>
-  </ol>
-  <% end %>
+    <% @event.asks.each do |ask| %>
+    <div class="asks" style="background-color: #<%= get_card_color(card_colors).first %>;">
+      <%= render ask %>
+    </div>
+    <% end %>
   <% end %>
 </div>
+
+
+
+<div id="attendees_panel" class="tabcontent", style="display:none;">
+<% card_colors = ['91CFFF', '88D0E0', '6EA8A7', 'FFD090', 'F1BBA7', '0DC59C'] %>
+  <% if @event.users.any? %>
+    <% @event.users.each do |attendee| %>
+    <div class="attendees">
+      <%= render attendee %>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+
 

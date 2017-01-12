@@ -23,6 +23,7 @@ class UsersController < ApplicationController
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
     else
+     # flash[:danger] = "Sorry, the account could not be created."
       render 'new'
     end
   end
@@ -37,6 +38,7 @@ class UsersController < ApplicationController
       flash[:success] = "Profile updated"
       redirect_to @user
     else
+      flash[:danger] = "Sorry, the update could not be saved."
       render 'edit'
     end
   end

@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require bootstrap-datepicker
+//= require moment
+//= require bootstrap-datetimepicker
 //= require turbolinks
 //= require_tree .
 
@@ -38,16 +39,34 @@ function closeNav() {
 }
 
 
-$('.collapse').on('hidden.bs.collapse', function (e) {
+$('.collapse').on('shown.bs.collapse', function (e) {
     alert('Event fired on #' + e.currentTarget.id);
 })
 
-$(document).on("focus", "[data-behaviour~='datepicker']", function(e) {
-  $(this).datepicker;
-  return {
-    format: "dd-mm-yyyy",
-    autoclose: true
-  };
+// Ask button scroll and fix 
+var num = 355; //number of pixels before modifying styles
+
+$(window).bind('scroll', function () {
+    if ($(window).scrollTop() > num) {
+        $('#ask_button').addClass('fixed');
+    } else {
+        $('#ask_button').removeClass('fixed');
+    }
+});
+
+// Event Ask and People Tabs
+function openContent(evt, contentName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    document.getElementById(contentName).style.display = "block";
+}
+
+$(document).ready(function() {
+        document.getElementById('focusmeplease').focus();
 });
 
 $('#id_of_textarea').keypress(function(e){

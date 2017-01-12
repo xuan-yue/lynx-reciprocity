@@ -1,27 +1,53 @@
-
+<% provide(:title, @user.firstName + ' ' + @user.lastName) %>
+<% provide(:mobile_header_title, @user.firstName + ' ' + @user.lastName) %>
+<% provide(:bodyclass, "user_profile_body") %>
 
 
 <div class="">
-	<% provide(:title, @user.firstName + @user.lastName) %>
 
 	<div class="section">
-		<h1 class= "center">   Welcome
-			<%= @user.firstName %>
-			<%= @user.lastName %>!
+		<h1 class= "center"> 
 
+			<div class="profile-photo">        
+				<%= gravatar_for @user, size: 80 %>
+			</div>
+			<div class="user-profile-name">
+				<%= @user.firstName %>
+				<%= @user.lastName %>
+			</div>
 		</h1>
 		Karma points: <%= @user.responses.count %>
 	</div>
 
 
 	<div class="">
+		<% card_colors = ['91CFFF', '88D0E0', '6EA8A7', 'FFD090', 'F1BBA7', '0DC59C'] %>
 		<% if @user.asks.any? %>
-		<h4> <%= @user.asks.count %> Asks</h4>
+		<div class = "profile_section_title"> <%= @user.asks.count %> Asks</div>
 		<% @user.asks.each do |ask| %>
-		<div class="asks">
+		<div class="asks" style="background-color: #<%= get_card_color(card_colors).first %>;">
 			<%= render ask %>
 		</div>
 		<% end %>
 		<% end %>
-	</div>  
+	</div>
+
+
+
+
+	<div class="">
+		<% @responses = Ask.joins(:responses).joins(:user).where("responses.user_id" => @user.id).distinct %>
+		<% card_colors = ['91CFFF', '88D0E0', '6EA8A7', 'FFD090', 'F1BBA7', '0DC59C'] %>
+		<% if @responses.any? %>
+		<div class = "profile_section_title"> <%= @user.responses.count %> Responses Over <%= Ask.joins(:responses).joins(:user).where("responses.user_id" => @user.id).distinct.count %> Asks</div>
+		<% @responses.each do |response| %>
+		<div class="asks" style="background-color: #<%= get_card_color(card_colors).first %>;">
+			
+			<% ask = Ask.find(response.id) %>
+			<%= render ask %>
+		</div>
+		<% end %>
+		<% end %>
+	</div>
+
 </div>

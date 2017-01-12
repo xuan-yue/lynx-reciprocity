@@ -28,7 +28,8 @@ class EventsController < ApplicationController
       @attendance.save! if !AttendanceHistory.find_by(user: current_user, event: @event.first)
       redirect_to @event.first
     else
-      redirect_to access_event_path, notice: 'Access code not found. Please contact your organizer.' 
+      flash[:danger] = 'Access code not found. Please contact your organizer.' 
+      redirect_to events_path
     end
 
   end
@@ -51,10 +52,12 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.save
       @event.send_event_details
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { flash[:success] = 'Event was successfully created.'
+          redirect_to @event }
         format.json { render :show, status: :created, location: @event }
       else
-        format.html { render :new }
+        format.html { flash[:danger] = 'Event could not be created.'
+          render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -65,10 +68,12 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { flash[:success] = 'Event was successfully updated.'
+          redirect_to @event }
         format.json { render :show, status: :ok, location: @event }
       else
-        format.html { render :edit }
+        format.html { flash[:danger] = 'Sorry, event could not be updated.'
+          render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -79,7 +84,8 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.html { flash[:success] = 'Event was successfully destroyed'
+        redirect_to events_url }
       format.json { head :no_content }
     end
   end

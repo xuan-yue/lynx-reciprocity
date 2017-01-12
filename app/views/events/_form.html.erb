@@ -2,49 +2,63 @@
 <div class="w-container">
   <div class="col-md-6 col-md-offset-3 form-wrapper w-form">
 
-<%= form_for(@event) do |f| %>
+    <%= form_for(@event) do |f| %>
 
-<br>
-<br>
-  <% if @event.errors.any? %>
+    <br>
+    <br>
+    <% if @event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
       <ul>
-      <% @event.errors.full_messages.each do |message| %>
+        <% @event.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
 
-  <%= f.hidden_field :user_id, :value => current_user.id%>
+    <%= f.hidden_field :user_id, :value => current_user.id%>
 
 
-  <div class="field">
-    <%= f.text_field :name, placeholder: "Name", class: 'form-field w-input' %>
-  </div>
-  <div class="field">
-    <%= f.text_field :description, placeholder: "Description", class: 'form-field w-input' %>
-  </div>
-  <div class="field">
-    <%= f.text_field :picture, placeholder: "Picture", class: 'form-field w-input' %>
-  </div>
-  <div class="field">
-    <%= f.text_field :url, placeholder: "Url", class: 'form-field w-input' %>
-  </div>
-  <div class="field">
-    <%= f.text_field :startDate, placeholder: "Start Date", 'data-behaviour' => 'datepicker', class: 'form-field w-input'  %>
-  </div>
-  <div class="field">
-    <%= f.text_field :endDate, placeholder: "End Date", 'data-behaviour' => 'datepicker', class: 'form-field w-input'  %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Create Event", class: "button full-width w-button" %>
-  </div>
-<% end %>
+    <div class="field">
+      <%= f.text_field :name, placeholder: "Name", class: 'form-field w-input' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :description, placeholder: "Description", class: 'form-field w-input' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :picture, placeholder: "Picture", class: 'form-field w-input' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :url, placeholder: "Url", class: 'form-field w-input' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :startDate, placeholder: "Start Date", 'data-behaviour' => 'datepicker', 'data-provide'=> 'datepicker', class: 'datepicker form-field w-input datetimepicker4', :value => @event.startDate ? @event.startDate.strftime("%d-%m-%Y %I:%M %p") : ''  %>
+    </div>
+    <div class="field">
+      <%= f.text_field :endDate, placeholder: "End Date", 'data-behaviour' => 'datepicker', 'data-provide'=> 'datepicker', class: 'datepicker form-field w-input datetimepicker4', :value =>  @event.endDate ? @event.endDate.strftime("%d-%m-%Y %I:%M %p") : ''  %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Create Event", class: "button full-width w-button" %>
+    </div>
+    <% end %>
 
   </div>
-  </div>
+</div>
 
+<script type="text/javascript">
+$(function () {
+  $('.datetimepicker4').datetimepicker({
+    format: 'DD-MM-YYYY HH:mm A',
+    sideBySide: true,
+    showClose: true,
+    widgetPositioning: {
+      horizontal: 'auto',
+      vertical: 'bottom'
+    },
+    stepping: 5
+  });
+});
+</script>

@@ -8,26 +8,5 @@
 <h2 class="centered section-heading">Sign up</h2>
 
 <br>
-<div class="w-container">
-  <div class="col-md-6 col-md-offset-3 form-wrapper w-form">
-    <%= form_for(@user, html: { multipart: true }) do |f| %>
-      <%= render 'shared/error_messages' %>
 
-      <%= f.text_field :firstName, placeholder: "First Name", class: 'form-field w-input' %>
-
-      <%= f.text_field :lastName, placeholder: "Last Name", class: 'form-field w-input' %>
-
-      <%= f.email_field :email, placeholder: "E-mail", class: 'form-field w-input' %>
-
-      <%= f.password_field :password, placeholder: "Password", class: 'form-field w-input' %>
-
-      <%= f.password_field :password_confirmation, placeholder: "Confirmation", class: 'form-field w-input' %>
-<!-- 
-  <span class="picture">
-    <%= f.file_field :picture %>
-  </span> -->
-
-      <%= f.submit "Create my account", class: "button full-width w-button" %>
-    <% end %>
-  </div>
-</div>
+<%= render 'form' %>

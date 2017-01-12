@@ -28,10 +28,14 @@ class AttendanceHistoriesController < ApplicationController
 
     respond_to do |format|
       if @attendance_history.save
-        format.html { redirect_to @attendance_history.event, notice: 'Event Access Granted!' }
+        format.html { 
+          flash[:success] = "Event Access Granted!"
+          redirect_to @attendance_history.event }
         format.json { render @attendance_history.event, status: :created, location: @attendance_history }
       else
-        format.html { redirect_to current_user, notice: 'Check In Failed!' }
+        format.html { 
+          flash[:success] = "Sorry, check In failed!"
+          redirect_to current_user }
         format.json { render json: @attendance_history.errors, status: :unprocessable_entity }
       end
     end

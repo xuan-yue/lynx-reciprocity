@@ -1,0 +1,15 @@
+
+<div class ="event_access_form">
+	<% @event = Event.new %>
+	<%= form_for @event, :url => validate_access_path do |f| %>
+
+	<div class="field">
+		<%= f.text_field :access_code, placeholder: "Access Code", class: 'form-field w-input' %>
+	</div>
+
+
+	<div class="actions">
+		<%= f.submit "Enter Room", class: "button full-width w-button event_access_button" %>
+	</div>
+	<% end %>
+</div>

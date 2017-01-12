@@ -30,10 +30,12 @@ class AsksController < ApplicationController
 
     respond_to do |format|
       if @ask.save
-        format.html { redirect_to @ask.event, notice: 'Ask was successfully created.' }
+        format.html { flash[:success] =  'Ask was successfully created.'
+         redirect_to @ask.event }
         format.json { redirect_to @ask.event, status: :created, location: @ask }
       else
-        format.html { render :new }
+        format.html { flash[:danger] = 'Sorry, the ask could not be created.'
+          redirect_to @ask.event }
         format.json { render json: @ask.errors, status: :unprocessable_entity }
       end
     end
