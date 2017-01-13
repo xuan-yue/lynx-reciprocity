@@ -11,7 +11,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
@@ -94,7 +94,9 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: host }
 
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.delivery_method = :aws_sdk
+  Aws.config.update({log_level: :debug})
 
   config.action_mailer.smtp_settings = {
   :address              => 'smtp.gmail.com',
@@ -105,5 +107,5 @@ Rails.application.configure do
   :authentication       => :plain,
   :enable_starttls_auto => true,
   :openssl_verify_mode  => 'none'
-}
+  }
 end
