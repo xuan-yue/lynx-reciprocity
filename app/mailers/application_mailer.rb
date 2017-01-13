@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "Lynx <contact@lynx.com>"
+  default from: "Lynx <LynxAppMailer@gmail.com>"
   layout 'mailer'
 end

@@ -77,26 +77,16 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-    config.action_mailer.raise_delivery_errors = true
-  # config.action_mailer.delivery_method = :smtp
-   host = 'ec2-52-43-81-35.us-west-2.compute.amazonaws.com:80'
-  # config.action_mailer.default_url_options = { host: host }
-  # ActionMailer::Base.smtp_settings = {
-  #   :address        => 'smtp.sendgrid.net',
-  #   :port           => '587',
-  #   :authentication => :plain,
-  #   :user_name      => ENV['SENDGRID_USERNAME'],
-  #   :password       => ENV['SENDGRID_PASSWORD'],
-  #   :domain         => 'heroku.com',
-  #   :enable_starttls_auto => true
-  # }
+  config.action_mailer.raise_delivery_errors = true
+
+  host = 'ec2-52-43-81-35.us-west-2.compute.amazonaws.com:80'
 
   config.action_mailer.default_url_options = { host: host }
 
   config.action_mailer.perform_deliveries = true
 
   config.action_mailer.delivery_method = :aws_sdk
-  Aws.config.update({log_level: :debug})
+  # Aws.config.update({log_level: :debug})
 
   config.action_mailer.smtp_settings = {
   :address => "email-smtp.us-west-2.amazonaws.com",
