@@ -33,6 +33,6 @@
              activated: true,
              admin: true)
 @event = Event.create!(name:  "Rails Meetup",
-             startDate: Time.today,
-             endDate: Time.today + 1,
+             startDate: Time.now,
+             endDate: Time.now + 1,
              user: @user)
