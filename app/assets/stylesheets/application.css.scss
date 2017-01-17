@@ -280,7 +280,7 @@
 
   .ask-user-name{
     color: #fff;
-    opacity: .65;
+    // opacity: .65;
     position: absolute;
     margin-top: 10px;
   }
@@ -361,7 +361,7 @@
   }
 
   .user-profile-img {
-    width: 40px;
+    //width: 40px;
     margin-right: 10px;
 
 
@@ -480,8 +480,8 @@
     background-repeat: no-repeat;
     background-position: 50%;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    // width: 40px;
+    // height: 40px;
     margin-right: 10px;
     margin-top: 0px !important;
 }
@@ -837,4 +837,21 @@ aside {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+
+
+
+/*ALL MOBILE*/
+@media screen and (max-width: 850px) { 
+a.navigation-link.w-nav-link.w--nav-link-open {
+    color: white !important;
+}
+.main {
+    // margin-top: 150px !important;
+    // margin-left: 50px !important;
+    // margin-right: 50px !important;
+    // margin-bottom: 100px !important;
+}
+
 }

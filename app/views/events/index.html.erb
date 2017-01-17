@@ -16,25 +16,23 @@
   <%= render "access" %>
 </div>
 
-<div class="events_list events_container">
-  <% if logged_in? %>
-    <% if !current_user.events.empty? %>
+<% if logged_in? %>
+  <% if !current_user.events.empty? %>
+    <div class="events_list events_container">
       <h1>My Rooms</h1>
-    <% end %>
-    <% current_user.events.each do |event| %>
-
-      <div class="room-list-item">
-        <div class="room-name"><%= event.name %></div>
-        <div class="room-owner">
-          By: <%= event.user.firstName %> <%= event.user.lastName %><br>
-          On: <%= event.startDate.strftime("%b %d, %Y") %>
-        </div>
-        <%= link_to "Enter Room", event_path(event), class: "btn btn-success room-btn" %>
-      </div>
-
-    <% end %>
-  </div>
+        <% current_user.events.each do |event| %>
+          <div class="room-list-item">
+            <div class="room-name"><%= event.name %></div>
+            <div class="room-owner">
+              By: <%= event.user.firstName %> <%= event.user.lastName %><br>
+              On: <%= event.startDate.strftime("%b %d, %Y") %>
+            </div>
+            <%= link_to "Enter Room", event_path(event), class: "btn btn-success room-btn" %>
+          </div>
+        <% end %>
+    </div>
   <% end %>
+<% end %>
 <br><br><br><br>
 
 

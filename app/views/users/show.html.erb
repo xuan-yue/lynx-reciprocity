@@ -7,9 +7,12 @@
 
 	<div class="section">
 		<h1 class= "center"> 
-
 			<div class="profile-photo">        
-				<%= gravatar_for @user, size: 80 %>
+				<%if @user == current_user %>
+					<%= link_to gravatar_for(@user, size: 80), "https://en.gravatar.com/" %>
+				<% else %>
+					<%= gravatar_for @user, size: 80 %>
+				<% end %>
 			</div>
 			<div class="user-profile-name">
 				<%= @user.firstName %>
@@ -39,7 +42,11 @@
 		<% @responses = Ask.joins(:responses).joins(:user).where("responses.user_id" => @user.id).distinct %>
 		<% card_colors = ['91CFFF', '88D0E0', '6EA8A7', 'FFD090', 'F1BBA7', '0DC59C'] %>
 		<% if @responses.any? %>
-		<div class = "profile_section_title"> <%= @user.responses.count %> Responses Over <%= Ask.joins(:responses).joins(:user).where("responses.user_id" => @user.id).distinct.count %> Asks</div>
+		<div class = "profile_section_title"> 
+			<%= @user.responses.count.to_s + ' ' + 'Comment'.pluralize(@user.responses.count)%> in 
+			<% @ask_count = Ask.joins(:responses).joins(:user).where("responses.user_id" => @user.id).distinct.count %>
+			<%= @ask_count.to_s + ' ' + 'Ask'.pluralize(@ask_count) %>
+		</div>
 		<% @responses.each do |response| %>
 		<div class="asks" style="background-color: #<%= get_card_color(card_colors).first %>;">
 			

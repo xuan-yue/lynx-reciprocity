@@ -65,9 +65,9 @@ function openContent(evt, contentName) {
     document.getElementById(contentName).style.display = "block";
 }
 
-$(document).ready(function() {
-        document.getElementById('focusmeplease').focus();
-});
+// $(document).ready(function() {
+//         document.getElementById('focusmeplease').focus();
+// });
 
 $('#id_of_textarea').keypress(function(e){
       if(e.which == 13){

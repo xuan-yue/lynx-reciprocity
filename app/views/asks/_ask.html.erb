@@ -6,7 +6,9 @@
 				<%= time_ago_in_words(ask.created_at) %> ago.
 			</small>
 			<%=  gravatar_for ask.user %> 			
-			<span class="user"><%= link_to ask.user.firstName + ' ' + ask.user.lastName.first, ask.user, class:"ask-user-name" %></span>	
+			<span class="user">
+				<%= link_to ask.user.firstName + ' ' + ask.user.lastName.first, ask.user, class:"ask-user-name" %>
+			</span>	
 
 			<span class="content"><%= ask.ask %></span>
 
