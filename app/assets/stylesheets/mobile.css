@@ -1,4 +1,13 @@
 /* IPAD */
+
+
+.w-container {
+    width: 80%;
+}
+form.new_user {
+    width: 80%;
+    margin: auto;
+}
 @media screen and (min-device-width: 767px) and (max-width: 850px) { 
 }
 
