@@ -38,7 +38,6 @@
 
 <% if current_user.admin? %>
 <h2 class="centered section-heading">Admins Only View: Events</h2>
-<div class="table-responsive">
   <table class="table table-condensed">
     <thead>
       <tr>
@@ -64,7 +63,6 @@
       <% end %>
     </tbody>
   </table>
-</div>
 <br>
 <%= link_to 'New Event', new_event_path %>
 <% end %>

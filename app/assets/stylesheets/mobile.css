@@ -4,10 +4,6 @@
 .w-container {
     width: 80%;
 }
-form.new_user {
-    width: 80%;
-    margin: auto;
-}
 @media screen and (min-device-width: 767px) and (max-width: 850px) { 
 }
 
@@ -23,22 +19,38 @@ form.new_user {
 
 /*ALL MOBILE*/
 @media screen and (max-width: 850px) { 
-a.navigation-link.w-nav-link.w--nav-link-open {
-    color: white !important;
-}
-.w-container {
-    width: 80%;
-}
-form.new_user {
-    width: 80%;
-    margin: auto;
-}
-.main {
-    // margin-top: 150px !important;
-    // margin-left: 50px !important;
-    // margin-right: 50px !important;
-    // margin-bottom: 100px !important;
-}
+	a.navigation-link.w-nav-link.w--nav-link-open {
+	    color: white !important;
+	}
+	.w-container  {
+	    width: 80%;
+	}
+	.event_access_form  {
+	    width: 80%;
+	    padding-top: 40px !important;
+	}
+	#event_access_button{
+		margin-top: 1em;
+	}
+	.main {
+	    // margin-top: 150px !important;
+	    // margin-left: 50px !important;
+	    // margin-right: 50px !important;
+	    // margin-bottom: 100px !important;
+	}
+	.event_head, .asks, .response, .responses, .events_container {
+		width: 100% !important;
+	}
+
+	.navigation-bar {
+    	position: relative !important;
+    }
+
+
+	.events_index {
+	    margin-top: 0px !important;
+	}
+
 
 }
 

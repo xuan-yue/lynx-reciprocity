@@ -4,17 +4,18 @@
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
 
-      <%= f.text_field :firstName, placeholder: "First Name", class: 'form-control' %><br>
+      <%= f.text_field :firstName, placeholder: "First Name", class: 'form-field w-input' %><br>
 
-      <%= f.text_field :lastName, placeholder: "Last Name", class: 'form-control' %><br>
+      <%= f.text_field :lastName, placeholder: "Last Name", class: 'form-field w-input' %><br>
 
-      <%= f.email_field :email, placeholder: "Email", class: 'form-control' %><br>
+      <%= f.email_field :email, placeholder: "Email", class: 'form-field w-input' %><br>
 
-      <%= f.password_field :password, placeholder: "Password", class: 'form-control' %><br>
+      <%= f.password_field :password, placeholder: "Password", class: 'form-field w-input' %><br>
 
-      <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", class: 'form-control' %><br>
+      <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", class: 'form-field w-input' %><br>
 
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
+      <%= f.submit "Save changes", class: "button full-width w-button" %>
+      <p>Have an account? <%= link_to "Log in now!", login_path %></p>
     <% end %>
   </div>
 </div>

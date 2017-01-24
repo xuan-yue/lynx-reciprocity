@@ -12,15 +12,17 @@
       	Welcome
         <%= current_user.firstName %>
         <%= current_user.lastName %>!
-        <div>
-  <%= link_to "Event Access Code", access_event_path, class: "button" %>
-</div>
+        <div id="event_access_button">
+		  <%= link_to "Event Access Code", access_event_path, class: "button" %>
+		</div>
                 
       </h1>
     </section>
 </div>
 <% else %>
 
+  <script src="https://daks2k3a4ib2z.cloudfront.net/5708403cc3aa1ecb51b0c5a4/js/webflow.435f29b17.js" type="text/javascript">
+  </script>
 
 
 
@@ -36,6 +38,7 @@
 			</div>
 			<div data-ix="fade-in-bottom-page-loads">
   <%= link_to "Interested? Sign up here.", signup_path, class: "button" %>
+
 			</div>
 		</div>
 	</div>
@@ -52,7 +55,7 @@
 			<div class="w-row">
 				<div class="w-col w-col-4">
 					<div class="white-box">
-						<img class="grid-image" src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/570aaa960dd2dc033a7a7bbc_seeker.png">
+						<img class="grid-image" src=<%= image_url("home_seekers.png") %>>
 						<h3>SEEKERS
 						</h3>
 						<p>You have an amazing idea for a project. You're looking for an exciting new role in a stellar company. You're looking for a rockstar candidate to fill a role. Or perhaps you'd like to finally meet the right mentor. We can help you connect with the right people and the right opportunities.
@@ -61,7 +64,7 @@
 				</div>
 				<div class="w-col w-col-4">
 					<div class="white-box">
-						<img class="grid-image" src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/5708403cc3aa1ecb51b0c5f6_feather2-17-white.svg" width="210">
+						<img class="grid-image" src=<%= image_url("home_connectors.svg") %> width="210">
 						<h3>CONNECTORS
 						</h3>
 						<p>You love to connect people who should know each other. You build the community and are an integral part of curating the interconnectedness of your network. We empower connectors to make more informed introductions that lead to better results.
@@ -70,7 +73,7 @@
 				</div>
 				<div class="w-col w-col-4">
 					<div class="white-box">
-						<img class="grid-image" src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/5708403cc3aa1ecb51b0c5f5_feather-15-white.svg" width="210">
+						<img class="grid-image" src=<%= image_url("home_organizers.svg") %> width="210">
 						<h3>ORGANIZERS
 						</h3>
 						<p>You bring together the community. You work hard to&nbsp;to make your community tight-knit and help it to thrive by producing quality events. We give event organizers tools to engage their communities in real-time at events and gather valuable feedback from members.
@@ -91,7 +94,7 @@
 			<div class="w-row">
 				<div class="w-col w-col-6">
 					<div class="transparent white-box">
-						<img class="fullwidth-image" src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/570a96270dd2dc033a7a6b18_IMG_0019.jpg">
+						<img class="fullwidth-image" src=<%= image_url("home_connect.jpg") %>>
 						<h3 class="white-text">Connect with someone new
 						</h3>
 						<p class="paragraph white-text">Come to one of our events and experience a whole new way of expanding your network. We host speaker events once a month followed by our proprietary networking experience.
@@ -104,7 +107,7 @@
 				</div>
 				<div class="w-col w-col-6">
 					<div class="transparent white-box">
-						<img class="fullwidth-image" src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/570a94d9727410dd49f82858_Dollarphotoclub_97345615.jpg">
+						<img class="fullwidth-image" src=<%= image_url("home_teacups.jpg") %>>
 						<h3 class="white-text">Refine your 1° network
 						</h3>
 						<p class="paragraph white-text">Lynx Titleal Relations Management is a tool for engaging your first degree network by helping you to manage introductions and deepen your existing relationships.
@@ -142,7 +145,7 @@
 				<div class="w-tab-content">
 					<div class="w--tab-active w-tab-pane" data-w-tab="Tab 1">
 						<div>
-							<img class="fullwidth-image" src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/570a969f44c86edb7d6af53c_IMG_0113.jpg">
+							<img class="fullwidth-image" src=<%= image_url("home_runway.jpg") %>>
 							<h2>Learn something new
 							</h2>
 							<p>Each month we invite a distinguished speaker from the local community to present their work on exciting new advancements. Our speakers are passionate about their topics and passing on their knowledge to the community. If you have a speaker that you'd really like to hear from, we'd be happy to reach out to them for a future Lynx event.
@@ -151,7 +154,7 @@
 					</div>
 					<div class="w-tab-pane" data-w-tab="Tab 2">
 						<div>
-							<img class="fullwidth-image" src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/570c8e7abcb8841d6082bc33_IMG_0131.jpg">
+							<img class="fullwidth-image" src=<%= image_url("home_attendees.jpg") %>>
 							<h2>Our goal is to make everyone feel welcome
 							</h2>
 							<p>Lynx is about building community during every one of our events. We encourage people to go beyond small talk to really get to know the other aspiring titleals in the room. The best connections are formed through genuine conversation, and you'd be surprised at how much you can learn just by spending the time to find out what each person has to say about their passions, their work, and their career aspirations.
@@ -160,7 +163,7 @@
 					</div>
 					<div class="w-tab-pane" data-w-tab="Tab 3">
 						<div>
-							<img class="fullwidth-image" src="http://uploads.webflow.com/5708403cc3aa1ecb51b0c5a4/570c8e35aa2c20d952179612_IMG_0164.jpg">
+							<img class="fullwidth-image" src=<%= image_url("home_volunteers.jpg") %>>
 							<h2>Become a Lynx volunteer
 							</h2>
 						</div>

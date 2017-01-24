@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-  get    'access_event'   => 'events#access'
+  get    'access_event'   => 'events#_access'
   get '/events/:id/attendees', to: 'events#attendees', as: 'attendees'
   post    'validate_access'   => 'events#validate_access'
   get    'register'  => 'users#new'
