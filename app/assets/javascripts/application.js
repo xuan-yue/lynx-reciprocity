@@ -22,9 +22,24 @@
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 
 function openNav() {
+	if (document.getElementById("mySidenav").style.width == 0 || document.getElementById("mySidenav").style.width == "0px")
+	{
+		document.getElementById("mySidenav").style.width = "200px";
+		document.getElementById("wrap").style.marginRight = "200px";
+        document.getElementById("wrap").style.marginLeft = "-200px";
+		document.getElementById("nav").style.marginRight = "200px";
+        document.getElementById("nav").style.marginLeft = "-200px";
+	}else{
+		closeNav();
+	}
 }
 
 function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("wrap").style.marginRight= "0";
+	document.getElementById("nav").style.marginRight = "0";
+    document.getElementById("wrap").style.marginLeft= "0";
+    document.getElementById("nav").style.marginLeft = "0";
 }
 
 

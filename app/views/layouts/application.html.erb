@@ -19,8 +19,8 @@
 
   <%= render 'layouts/shim' %>
 </head>
-
 <body id="wrap">
+  <%= render 'layouts/sidenav' %>
   <%= render 'layouts/header' %>
   <% flash.each do |message_type, message| %>
     <div class="alert alert-<%= message_type %>"><%= message %></div>

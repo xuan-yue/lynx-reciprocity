@@ -23,7 +23,7 @@
 	    color: white !important;
 	}
 	.w-container  {
-	    width: 80%;
+	    width: 85%;
 	}
 	.event_access_form  {
 	    width: 80%;
@@ -38,14 +38,9 @@
 	    // margin-right: 50px !important;
 	    // margin-bottom: 100px !important;
 	}
-	.event_head, .asks, .response, .responses, .events_container {
+	.event_head, .asks, .response, .responses, .events_container, .user_profile_body {
 		width: 100% !important;
 	}
-
-	.navigation-bar {
-    	position: relative !important;
-    }
-
 
 	.events_index {
 	    margin-top: 0px !important;

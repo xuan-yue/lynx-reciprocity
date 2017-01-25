@@ -489,7 +489,8 @@
 .gravatar_edit {
   // margin-top: 15px;
 }
-  body {
+  body {    
+    font-family: 'ProximaNova';
     // background: image-url("5708403cc3aa1ecb51b0c5b3_photo-1416359658663-73a3834895eb.jpg") no-repeat center;
   //   background-size:100%;
  	// padding-top: 60px;
@@ -796,21 +797,24 @@ aside {
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0;
-  left: 0;
-  background-color: #e5f2fd; /* Black*/
+  right: 0;
+  background-color: #69b9ff;
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
+  padding-top: 40px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
+  padding: 8px 8px 8px 8px;
+  text-decoration: none;    
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  color: #fff;
   display: block;
-  transition: 0.3s
+  text-align: center;
+  letter-spacing: .1em;
+  transition: 0.5s;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -828,9 +832,8 @@ aside {
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-  transition: margin-left .5s;
-  padding: 20px;
+#wrap, #nav {
+  transition: 0.5s;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -839,19 +842,3 @@ aside {
   .sidenav a {font-size: 18px;}
 }
 
-
-
-
-/*ALL MOBILE*/
-@media screen and (max-width: 850px) { 
-a.navigation-link.w-nav-link.w--nav-link-open {
-    color: white !important;
-}
-.main {
-    // margin-top: 150px !important;
-    // margin-left: 50px !important;
-    // margin-right: 50px !important;
-    // margin-bottom: 100px !important;
-}
-
-}
