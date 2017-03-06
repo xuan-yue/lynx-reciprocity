@@ -80,7 +80,7 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
 
-  host = 'ec2-52-43-81-35.us-west-2.compute.amazonaws.com:80'
+  host = 'ec2-52-43-81-35.us-west-2.compute.amazonaws.com:3000'
 
   config.action_mailer.default_url_options = { host: host }
 
