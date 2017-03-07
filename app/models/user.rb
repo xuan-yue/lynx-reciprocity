@@ -22,19 +22,16 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }, allow_blank: true
   VALID_PHONE_REGEX = /(1?[ -.]?\(?\d{3}\)?[ -.]?\d{3}[ -.]?\d{4}[ extension\.]*\d{0,5})/i
-  validates :phone, length: { maximum: 50 },
+  validates :phone, length: { maximum: 50 }, allow_blank: true,
                     format: { with: VALID_PHONE_REGEX, message: "format is invalid"  }, 
-                    presence: true,  
                     :on => :update
-  validates :street1, presence: true,  
-                    :on => :update
-  validates :city, presence: true,  
-                    :on => :update
-  validates :state, presence: true,  
-                    :on => :update
-  validates :zip, presence: true, numericality: { only_integer: true }, length: { is: 5 },
+  validates :zip, presence: true, numericality: { only_integer: true }, allow_blank: true,
+                    length: { is: 5 },
                     :on => :update
   before_validation :format_phone
+  self.per_page = 20
+
+  default_scope{order(lastName: :asc)} 
 
   def city=(s)
     write_attribute(:city, s.to_s.titleize) # The to_s is in case you get nil/non-string
