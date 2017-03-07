@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
         redirect_to login_url
       end
     end
-
     
     # Confirms the correct user.
     def correct_user
@@ -24,6 +23,14 @@ class ApplicationController < ActionController::Base
       unless current_user?(@user) || current_user.admin?
 	  	flash[:danger] = "Sorry. Your account cannot access this page."
 	    redirect_to(root_url) 
+      end
+    end
+    
+    # Confirms the correct user.
+    def admin_user
+      unless logged_in? && current_user.admin?
+      flash[:danger] = "Sorry. Your account cannot access this page."
+      redirect_to(root_url) 
       end
     end
     

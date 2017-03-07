@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   respond_to :html, :json
   before_action :logged_in_user, only: [:edit, :update, :show]
   before_action :correct_user,   only: [:edit, :update, :show]
-  #before_action :admin_user,     only: [:index, :destroy]
+  before_action :admin_user,     only: [:index, :destroy]
 
   def index
   @users = User.paginate(:page => params[:page])
