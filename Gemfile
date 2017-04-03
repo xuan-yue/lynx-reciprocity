@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'google_contacts_api', '~> 0.7.1'
 
 gem 'pg'
+gem 'omniauth-linkedin-oauth2'
+gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'bootstrap-sass',       '3.2.0.0'
 gem 'responders', '~> 2.0'
