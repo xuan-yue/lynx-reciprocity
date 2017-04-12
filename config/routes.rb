@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get 'password_resets/edit'
 
+  get '/auth/linkedin/callback', to: 'oauth#linkedin_callback'
   get '/auth/:provider/callback', to: 'oauth#callback', as: 'oauth_callback'
   get '/auth/failure', to: 'oauth#failure', as: 'oauth_failure'
   get 'users/new'

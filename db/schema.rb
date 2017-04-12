@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926081902) do
+ActiveRecord::Schema.define(version: 20170410195619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,15 @@ ActiveRecord::Schema.define(version: 20160926081902) do
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
+
+  create_table "linkedin_profiles", force: :cascade do |t|
+    t.string   "email"
+    t.string   "image_url"
+    t.string   "profile_url"
+    t.text     "raw_data"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "responses", force: :cascade do |t|
     t.integer  "user_id"

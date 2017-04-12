@@ -24,11 +24,19 @@
              activated: true,
              admin: true)
 
-@user2 = User.create!(firstName:  "Enhao",
+@@user2 = User.create!(firstName:  "Enhao",
 	       lastName: 	"Li",
              email: "enhao@lynx-me.com",
              password:              "foobar",
              password_confirmation: "foobar",
+             activated_at: Time.zone.now,
+             activated: true,
+             admin: true)
+@user3 = User.create!(firstName:  "John",
+	       lastName: 	"Doe",
+               email: "johndoe@example.com",
+             password:              "abc123",
+             password_confirmation: "abc123",
              activated_at: Time.zone.now,
              activated: true,
              admin: true)
