@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'password_resets/edit'
 
+  get '/auth/:provider/callback', to: 'oauth#callback', as: 'oauth_callback'
+  get '/auth/failure', to: 'oauth#failure', as: 'oauth_failure'
   get 'users/new'
   root                'static_pages#home'
   get    'contact'  => 'static_pages#contact'

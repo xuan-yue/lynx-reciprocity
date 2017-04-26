@@ -15,7 +15,7 @@
       <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", class: 'form-field w-input' %><br>
 
       <%= f.submit "Save changes", class: "button full-width w-button" %>
-      <p>Have an account? <%= link_to "Log in now!", login_path %></p>
+      <p>Have an account? <%= link_to "Go to the login page", login_path %>  or <%= link_to "log in with Linkedin", '/auth/linkedin' %>  or <%= link_to "log in with Facebook", '/auth/facebook' %> or <%= link_to "log in with Google", '/auth/google_oauth2' %></p>
     <% end %>
   </div>
 </div>
