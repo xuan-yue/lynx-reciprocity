@@ -16,3 +16,4 @@
 !/log/.keep
 /tmp
 /Users/beverlyleu/.ssh/id_rsa.pub
+*.swp

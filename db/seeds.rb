@@ -32,6 +32,22 @@
              activated_at: Time.zone.now,
              activated: true,
              admin: true)
+@user3 = User.create!(firstName:  "John",
+	       lastName: 	"Doe",
+               email: "johndoe@example.com",
+             password:              "abc123",
+             password_confirmation: "abc123",
+             activated_at: Time.zone.now,
+             activated: true,
+             admin: true)
+@user4 = User.create!(firstName:  "Jane",
+	       lastName: 	"Doe",
+               email: "janedoe@example.com",
+             password:              "abc123",
+             password_confirmation: "abc123",
+             activated_at: Time.zone.now,
+             activated: true,
+             admin: false)
 @event = Event.create!(name:  "Rails Meetup",
              startDate: Time.now,
              endDate: Time.now + 1,
